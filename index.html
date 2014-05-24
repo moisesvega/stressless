@@ -5,12 +5,16 @@
   <title>Ember Starter Kit</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 </head>
 <body>
   <script type="text/x-handlebars">
-    <h2>Welcome to Ember.js</h2>
+    <h2>Welcome to Stressless</h2>
 
     {{outlet}}
+
+    <li>{{#link-to 'login'}} login {{/link-to}} </li>
+    <li>{{#link-to 'circulo'}} circulo {{/link-to}}
   </script>
 
   <script type="text/x-handlebars" id="index">
@@ -19,19 +23,13 @@
       <li>{{item}}</li>
     {{/each}}
     </ul>
+  </script>
 
-    {{#if App.FBUser}}
-      <div>
-        <img {{bindAttr src="App.FBUser.picture" alt="App.FBUser.name"}} />
-        {{App.FBUser.name}}
-        <a href="#" {{action "logout" target="FB"}}>Logout</a>
-      </div>
-    {{else}}
-      {{#view Em.FacebookView type="login-button" data-size="xlarge"
-                              data-scope="email, offline_access"}}
-        Connect
-      {{/view}}
-    {{/if}}
+
+  <script type="text/x-handlebars" id="circulo">
+    <div>
+    circulo
+    </div>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
