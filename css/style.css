@@ -27,6 +27,7 @@ body,html{height:100%;}
 body {
 	background-color: #1D1F20;
 	margin:0 auto;
+	background-image: url(../images/Splash.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	overflow:auto;
