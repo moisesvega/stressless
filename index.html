@@ -25,17 +25,6 @@
 <body style=''>
 
   <script>
-          var myvideo = document.getElementsByTagName('video')[0];
-
-          myvideo.addEventListener('loadeddata', function() {
-            console.log("** RECEIVED loadeddata **");
-            myvideo.play();//this first play is needed for Android 4.1+
-          }, false);
-
-          myvideo.addEventListener('canplaythrough', function() {
-            console.log("** RECEIVED canplaythrough **");
-            myvideo.play();//this second play is needed for Android 4.0 only
-          }, false);
   </script>
   <script type="text/x-handlebars">
     <div class='grid-parent grid-container' style='margin:0 auto;'>
@@ -91,10 +80,8 @@
     
     <li>{{#link-to 'circle'}} circle {{/link-to}}
     </div>
-    <video id='video' height='100%' width='100%' loop>
-      <source src="images/Globo_Respira.mp4">
-      <p>Your browser does not support H.264/MP4.</p>
-    </video>
+    <div class='globo'>
+    </div>
   </script>
 
   <script type="text/x-handlebars" id="circle">
