@@ -34,7 +34,8 @@ body {
 }
 
 .logo {
- 	background-image: url(../images/estresless.png);
+ 	background-image: url(../images/Logo.png);
+ 	background-repeat: no-repeat;
  	height: 220px; 
  	width: 200px;
  	padding: 10px;
