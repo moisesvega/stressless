@@ -37,6 +37,19 @@ App.ColorsView = Ember.View.extend({
   }
 });
 
+App.GloboView = Ember.View.extend({
+  didInsertElement : function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, function(){
+    	// perform your jQuery logic here
+    	document.getElementById('video').play();
+    });
+  }
+});
+
+
+
+
 App.IndexRoute = Ember.Route.extend({
   model: function() {
     return ['red', 'yellow', 'blue', 'hey'];
