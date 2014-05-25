@@ -7,15 +7,26 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/grid.css">
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/cupertino/jquery-ui.css">
+
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script src="js/libs/ember-1.5.1.js"></script>
+  <script src="js/libs/facebook.js"></script>
+  <script src="js/app.js"></script>
+
+
+  <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
 </head>
-<body style='height:100%;'>
+<body style=''>
 
   <script>
 </script>
-
   <script type="text/x-handlebars">
-    <div class='grid-container' style='margin:0 auto;'>
+    <div class='grid-parent grid-container' style='margin:0 auto;'>
       {{outlet}}
     </div>
   </script>
@@ -32,8 +43,61 @@
   </div>
   </script>
 
+<script>
+  var seconds = 6;
+  $(function() {
+    $( "#dialog-confirm" ).dialog({
+      resizable: false,
+      height:140,
+      modal: true,
+      buttons: {
+        "Ok": function() {
+          $( this ).dialog( "close" );
+          setIntervalAndExecute();
+        }
+      }
+    });
+  });
+  function setIntervalAndExecute() {
+    return(setTimeout(function() { 
+      $(function() {
+        $( "#dialog-confirm" ).dialog({
+          resizable: false,
+          height:140,
+          modal: true,
+          buttons: {
+            "Si": function() {
+              $( this ).dialog( "close" );
+            },
+
+            "No": function() {
+              $( this ).dialog( "close" );
+              $('#globo').click();
+            }
+          }
+        });
+      });
+    }, 7000));
+  }
+
+  </script>
 
   <script type="text/x-handlebars" id="colors">
+
+    <div id="dialog-confirm" title="Ejecicio">
+      <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 0px 0;"></span>
+        Mira fijamente el punto rojo.</p>
+    </div>
+
+    <div id="dialog-confirm" title="Pregunta" style='display:none;font-size: 9px;'>
+      <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 0px 0;"></span>
+
+        ¿Notaste el círculo azul alrededor del punto rojo?</p>
+    </div>
+
+    <div class='punto-rojo'>
+    </div>
+
     <div>
     <li>{{#link-to 'timers'}} timers {{/link-to}}
     </div>
@@ -42,7 +106,7 @@
   <script type="text/x-handlebars" id="timers">
     <div>
 
-    <li>{{#link-to 'globo'}} globo {{/link-to}}
+    <li id='globo'>{{#link-to 'globo'}} globo {{/link-to}}
     </div>
   </script>
 
@@ -51,6 +115,10 @@
     
     <li>{{#link-to 'circle'}} circle {{/link-to}}
     </div>
+    <video height='100%' width='100%' autoplay loop>
+      <source src="images/Globo_Respira.mov">
+      <p>Your browser does not support H.264/MP4.</p>
+    </video>
   </script>
 
   <script type="text/x-handlebars" id="circle">
@@ -95,12 +163,6 @@
     TEXTO EXPLICA
     </div>
   </script>
-
-  <script src="js/libs/jquery-1.10.2.js"></script>
-  <script src="js/libs/handlebars-1.1.2.js"></script>
-  <script src="js/libs/ember-1.5.1.js"></script>
-  <script src="js/libs/facebook.js"></script>
-  <script src="js/app.js"></script>
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
 
