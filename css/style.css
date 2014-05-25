@@ -22,15 +22,20 @@ div {
 	text-align: center;
 	height: 100px;
 }
-body,html{height:100%;}
+body,html{height:100%; width: 100%;}
 
 body {
 	background-color: #1D1F20;
 	margin:0 auto;
-	background-image: url(../images/Splash.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	overflow:auto;
+
+  background: url(../images/Splash.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html { 
 }
 
 .logo {
