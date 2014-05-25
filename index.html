@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Ember Starter Kit</title>
+  <title>Estresless</title>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/grid.css">
@@ -13,6 +13,7 @@
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/handlebars-1.1.2.js"></script>
   <script src="js/libs/ember-1.5.1.js"></script>
+  <script src="js/libs/things.js"></script>
   <script src="js/libs/facebook.js"></script>
   <script src="js/app.js"></script>
 
@@ -24,7 +25,7 @@
 <body style=''>
 
   <script>
-</script>
+  </script>
   <script type="text/x-handlebars">
     <div class='grid-parent grid-container' style='margin:0 auto;'>
       {{outlet}}
@@ -43,46 +44,9 @@
   </div>
   </script>
 
-<script>
-  var seconds = 6;
-  $(function() {
-    $( "#dialog-confirm" ).dialog({
-      resizable: false,
-      height:140,
-      modal: true,
-      buttons: {
-        "Ok": function() {
-          $( this ).dialog( "close" );
-          setIntervalAndExecute();
-        }
-      }
-    });
-  });
-  function setIntervalAndExecute() {
-    return(setTimeout(function() { 
-      $(function() {
-        $( "#dialog-confirm" ).dialog({
-          resizable: false,
-          height:140,
-          modal: true,
-          buttons: {
-            "Si": function() {
-              $( this ).dialog( "close" );
-            },
-
-            "No": function() {
-              $( this ).dialog( "close" );
-              $('#globo').click();
-            }
-          }
-        });
-      });
-    }, 7000));
-  }
-
-  </script>
 
   <script type="text/x-handlebars" id="colors">
+    {{showD}}
 
     <div id="dialog-confirm" title="Ejecicio">
       <p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 0px 0;"></span>
@@ -101,6 +65,7 @@
     <div>
     <li>{{#link-to 'timers'}} timers {{/link-to}}
     </div>
+
   </script>
 
   <script type="text/x-handlebars" id="timers">
@@ -111,18 +76,19 @@
   </script>
 
   <script type="text/x-handlebars" id="globo">
-    <div>
+    <div style="display:none">
     
     <li>{{#link-to 'circle'}} circle {{/link-to}}
     </div>
     <video height='100%' width='100%' autoplay loop>
-      <source src="images/Globo_Respira.mov">
+      <source src="images/Globo.mp4">
       <p>Your browser does not support H.264/MP4.</p>
     </video>
   </script>
 
   <script type="text/x-handlebars" id="circle">
     <div>
+
     
     <li>{{#link-to 'viste'}} viste {{/link-to}}
     </div>

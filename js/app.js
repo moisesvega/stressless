@@ -16,6 +16,27 @@ App.Router.map(function() {
 
 });
 
+Ember.View.reopen({
+  didInsertElement : function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, this.afterRenderEvent);
+  },
+  afterRenderEvent : function(){
+    // implement this hook in your own subclasses and run your jQuery logic there
+	  
+  }
+});
+
+App.ColorsView = Ember.View.extend({
+  didInsertElement : function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, function(){
+    	// perform your jQuery logic here
+    	showDialog();
+    });
+  }
+});
+
 App.IndexRoute = Ember.Route.extend({
   model: function() {
     return ['red', 'yellow', 'blue', 'hey'];
