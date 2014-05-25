@@ -42,10 +42,29 @@ App.GloboView = Ember.View.extend({
     this._super();
     Ember.run.scheduleOnce('afterRender', this, function(){
     	// perform your jQuery logic here
-    	document.getElementById('video').play();
+
+    $(function() {
+      $( "#dialog-globo" ).dialog({
+        resizable: false,
+        height:140,
+        modal: true,
+        buttons: {
+          "Ok": function() {
+            $( this ).dialog( "close" );
+          }
+        }
+      });
+    });
+
+
     });
   }
 });
+
+
+
+
+
 
 
 
