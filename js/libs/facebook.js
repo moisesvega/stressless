@@ -91,6 +91,7 @@
           // you can store this data into your database             
             });
             checkLoginState();
+            window.location.href = document.URL + "#/colors";
 
         } else {
             //user hit cancel button
